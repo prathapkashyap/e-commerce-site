@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .image{
+               
+                background-size: cover;
+                background-position: center;
+                min-height: 200px;
+                
+            }
+            @media screen and (max-width:670px){
+                .image{
+                    min-height: 250px;
+                    height: 100px
+                }
+            }
+        </style>
+</head>
+<body>
+    <% include ./navbar.ejs %>
+    <div class="container">
+            <h1 class="center"><%= product.title %></h1>
+        <div  class="row">
+            <div class="col l12">
+                <div class="col l6">
+                    <img src="../<%=product.imagePath %>" alt="image" class="image" >
+                </div>
+                <div class="col l3">
+                    <h3>Description:</h3>
+                    <p><%=product.description %></p>
+                    <h4> Price: $<%=product.price %></h4>
+                    <p class="block">Ratings: <%=product.rating%></p>
+                    <a href="/add-to-cart/<%= product._id %>"><button class="btn blue center"> ADD TO CART</button></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="collection">
+            
+                <% if(product.comments.length===0){ %>
+                    <h5>No user comments yet. Be the first one to leave a comment</h5>
+                <%} else { %>  
+                    
+                    <% product.comments.forEach(comment=>{ %>
+                        <div class="collection-item">
+                            <span class="title">
+                                <%= comment.from_user %>
+                            </span>
+                            <p>
+                                <%=comment.comment %>
+                            </p>
+                            <% console.log(typeof(comment.time))%>
+                            <p class="right"><%=comment.time%></p>
+                        </div>
+                    <% }) %>
+                
+                <% } %>
+           
+          
+            
+
+        </div>
+        <h5>
+                Leave comment
+            </h5>
+        <form action="/product/moreinfo/<%=product._id %>" method="POST">
+            Comment: <textarea name="product_comment"  class="materialize-textarea" id="product_comment" cols="30" rows="10" placeholder="your comment here"></textarea>
+            <button class="btn pink-lighten5"> POST</button>
+        </form>
+    </div>
+</body>
+</html>

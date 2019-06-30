@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <% include ./navbar %>
+    <div class="container">
+    <div class="row  ">
+        <div class="col s6 l8 push-l2">
+         <h5>Your total is :$<%= totalPrice %></h5>
+
+        <!-- <form action="/checkout" method="POST">
+            <label for="name"> Name</label>
+            <input type="text" name="name" id="name" required class="input-field">
+            <label for="address"> Address</label>
+        <input type="text" id="address" name="address" required>
+        <label for="card-number"> Card Number</label>
+        <input type="text" name="cardnumebr" id="card-number" required class="input-field">
+        <label for="card-expiration-year"> card-expiration-year</label>
+        <input type="text" name="card-expiration-year" id="card-expiration-year" required class="input-field">
+        <label for="card-expiration-month">card-expiration-month</label>
+        <input type="text" name="card-expiration-month" id="card-expiration-month" required class="input-field"> 
+        <label for="card-cvc">CVC</label>
+        <input type="text" name="card-cvc" id="card-cvc" required class="input-field">
+        </div> -->
+
+        <form action="/checkout" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_v9uhjZ42DENOcpm7EeEtnaQX004yLaVmkb"
+                  data-amount="<%= totalPrice%>00"
+                  data-name="Prathap"
+                  data-description="Widget"
+                  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                  data-locale="auto">
+                </script>
+              </form>
+    </div>
+</body>
+</html>

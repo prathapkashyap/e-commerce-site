@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<% include ./layout.ejs %>
+<div>
+<nav class="nav-wrapper black" >
+
+        <a href="/" class="brand-logo center hide-on-med-and-down">carter<i class="material-icons">shopping_cart</i></a>  
+
+        <a href="" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons">menu</i></a>
+    
+    <ul class="hide-on-med-and-down">
+
+        <li class="right active"> <a href="/shoppingcart/">cart</span></a></li>
+        <% if (login) { %>
+        <li class="right">
+            <a href="/user/profile">profile</a>
+        </li>
+
+        <li class="right active ">
+            <a href="/user/logout">logout</a>
+        </li>
+        <% } else { %>
+        <li class="right active">
+           <a href="/user/signin">Signin</a>
+        </li>
+      
+        <li class="right ">
+                <a href="/user/signup">Sign up</a>
+        </li>
+        <% } %>
+        
+    </ul>
+    <form action="/product/navbar" method="POST" clas>
+        <div class="row">
+            <div class="col l4 s8">
+            <div class="input-field">
+              <input id="search" type="search" name="search"  placeholder="Search">
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          
+        </div>
+        </div>
+    </form>
+    <ul class="sidenav black" id="mobile-menu">
+        
+            <li ><a href="/" class="white">Home</a> </li>
+            <% if (login) { %>
+            <li class="">
+                <a href="/user/profile" class="white-text">profile</a>
+            </li>
+           
+            <li class=" ">
+                <a href="/user/logout" class="white-text">logout</a>
+            </li>
+            <% } else { %>
+            <li class="">
+               <a href="/user/signin" class="white-text">Signin</a>
+            </li>
+          
+            <li class=" ">
+                    <a href="/user/signup" class="white-text">Sign up</a>
+            </li>
+            <% } %>
+            <li class="white"> <a href="/shoppingcart/">cart</span></a></li>
+    </ul>
+    <!-- <nav class="nav-extended hide-on-large-only ">
+        <div class="nav-wrapper black"> -->
+   
+<!-- </div>
+</nav>
+  -->
+    
+
+
+</nav>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script >
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    })
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    // var elems = document.querySelectorAll('.sidenav');
+    // var instances = M.Sidenav.init(elems, options);
+//   });
+
+</script>
+</body>
+</html>

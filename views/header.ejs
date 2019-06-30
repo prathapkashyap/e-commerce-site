@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    header{
+       
+        background-size: cover;
+        background-position: center;
+        min-height: 500px;
+
+    }
+    @media screen and (max-width:670px){
+        header{
+            min-height: 250px
+        }
+    }
+</style>
+<body>
+    <% include ./layout.ejs %>
+    <header>
+        <% include ./navbar.ejs %>
+        
+  <div class="slider">
+        <ul class="slides">
+          <li>
+            <img src="../public/images/iphonebg.jpg"> 
+            <div class="caption center-align">
+              <h3>Wanna buy this product?</h3>
+              <h5 class="light grey-text text-lighten-3">You've come to the right place</h5>
+            </div>
+          </li>
+          <li>
+            <img src="../public/images/tvbg.jpg"> 
+            <div class="caption left-align">
+              <h3>We have it all!!</h3>
+              <h5 class="light grey-text text-lighten-3">Every one of your needs</h5>
+            </div>
+          </li>
+          <li>
+            <img src="../public/images/amazon.jpg"> 
+            <div class="caption right-align">
+              <h3>Didn't find what you wanted?</h3>
+              <h5 class="light grey-text text-lighten-3">Why not use that search bar and try again..</h5>
+            </div>
+          </li>
+          <li>
+            <img src="../public/images/ltbg.jpg">
+            <div class="caption center-align">
+              <h3>It works!!!</h3>
+              <h5 class="light grey-text text-lighten-3">Have a nice time buying your stuff here</h5>
+            </div>
+          </li>
+        </ul>
+      </div>
+          
+    </header>
+    <script>
+    $(document).ready(function(){
+    $('.slider').slider();
+  });
+    </script>
+</body>
+</html>

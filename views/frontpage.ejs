@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../public/style/imagestyling.css">
+    <title>Document</title>
+</head>
+<body class="bgcolor">
+        <% include ./header %>
+    
+    
+    <div class="container">
+        <br>
+      
+        
+            <div class="row">
+                <div class="col l8 s12 push-l2 center">
+                    <a href="/product/games"><input type="submit" value="games" class="chip"></a>
+                    <a href="/product/electronics"><input type="submit" class="chip" value="electronics"></a>
+                    <a href="/product/mobile phones"><input type="submit" class="chip" value="mobile Phones"></a>
+                    <a href="/product/entertainment"><input type="submit" value="entertainment" class="chip"></a>
+                    <a href="/product/fashion"><input type="submit" class="chip" value="fashion"></a>
+                    <a href="/product/books"><input type="submit" class="chip" value="books"></a>
+                    <a href="/product/home appliances"><input type="submit" class="chip" value="home appliances"></a>
+                    <a href="/product/furniture"><input type="submit" class="chip" value="furniture"></a>
+                    <a href="/product/shoes"><input type="submit" value="shoes" class="chip"></a>
+                    <a href="/product/movies"><input type="submit" class="chip" value="movies"></a>
+                    <a href="/product/beauty"><input type="submit" class="chip" value="beauty"></a>
+                </div>
+            </div>
+       
+        <% if(products){ %>
+            
+    <% products.forEach((product)=>{ %>
+        <div class="row">
+                <div class="col s12 l6 m6"> 
+                    <div class="card  black lighten ">
+                        <div class="card-image">
+                        
+                            <button class="halfway-fab pink btn-floating pulse">
+                                <i class="material-icons">favorite</i></button>
+                            <img src="<%=product.imagePath %>" class=" thumbnail" alt="the pokemon sword cover photo" >
+                            
+                        </div>
+                        <div class="card-content white-text">
+                            <span class="card-title white-text"><%=product.title %></span>
+                            <p> <%= product.description %> </p>
+                            <p class="blue-text darken-4 right" style="font-size: 30px">  $<%= product.price %></p>
+                            <br>
+                        </div>
+                        <div class="card-action">
+                        <a href="/add-to-cart/<%= product._id %>"><button class="btn red center"> BUY</button></a>
+                        <a href="/product/moreinfo/<%= product._id %>"><button class="btn red"> More Info</button></a>
+                        </div>
+                </div>
+            </div>
+        
+        <%}) %>
+        <%} else { %>
+            <div>
+                <h1>No items found</h1>
+            </div>
+        <% } %>
+    </div>
+    
+</body>
+</html>

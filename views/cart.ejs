@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/style/imagestyling.css">
+</head>
+<body>
+    <% include ./navbar.ejs %>
+    <div class="container">
+    <% if (products.length>0) { %>
+        <% products.forEach(function(prod){ %>
+           
+          
+    <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="<%= prod.item.imagePath %>" alt="" class="circle">
+      <span class="title"><%= prod.item.title %></span>
+      <p>Quantity: <%= prod.qty%><br>
+         price: <%= prod.item.price %>
+      </p>
+    
+      <a href="/reduce/<%=prod.item._id %>" class=""><i class="material-icons">remove</i></a>
+      <a href="/remove/<%=prod.item._id %>" class=""><i class="material-icons">delete</i></a>
+    
+    </li>
+    </ul>
+    
+        <% }) %>
+   
+        <h3>Total price :<%= totalPrice%></h3>
+        <a href="/checkout"><button type="submit" class="btn blue"> CheckOut</button></a>
+    <% } else {%> 
+    <h1>No Items in cart</h1>
+    <% } %>
+</div>
+</body>
+</html>

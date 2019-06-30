@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <% include ./navbar.ejs %>
+    
+    <div class="container">
+            <h1> Your Previous Orders</h1>
+    <div class="row">
+        <div class="col s12 l12 center">
+                
+            <div class="card blue-grey-darken1">
+                <% orders.forEach(order=>{ %>
+                     <div class="card-content">
+                         <% console.log(Object.keys(order),typeof(order.items)) %>
+                        <%order.items.forEach(item=>{%>
+                            <strong class="title"><%=(item.item.title)%></strong>
+                            <p class="right strong"> $<%= (item.item.price)%></p>
+                            <br>
+                            
+                       <% }) %>
+                       <h3>Total Price:<%=order.cart.totalPrice %></h3>
+                    
+                </div>
+            <% }) %>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../public/style/imagestyling.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <% include ./navbar %>
+    <div class="container">
+    <% products.forEach((product)=>{ %>
+        <div class="row">
+                <div class="col s12 l6"> 
+                    <div class="card black lighten ">
+                        <div class="card-image ">
+                        
+                            <button class="halfway-fab pink btn-floating pulse">
+                                <i class="material-icons">favorite</i></button>
+                            <img src="<%=product.imagePath %>" class="thumbnail" alt="the pokemon sword cover photo" >
+                            
+                        </div>
+                        <div class="card-content white-text">
+                            <span class="card-title white-text"><%=product.title %></span>
+                            <p> <%= product.description %> </p>
+                            <p class="blue-text darken-4 right" style="font-size: 30px">  $<%= product.price %></p>
+                            <br>
+                        </div>
+                        <div class="card-action">
+                        <a href="/add-to-cart/<%= product._id %>"><button class="btn red center"> BUY</button></a>
+                        <a href="/product/moreinfo/<%= product._id %>"><button class="btn red"> More Info</button></a>
+
+                    </div>
+                </div>
+            </div>
+            <%}) %>
+        </div>
+</body>
+</html>
