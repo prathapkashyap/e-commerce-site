@@ -9,7 +9,7 @@
 <body>
     <% include ./navbar.ejs %>
     <div class="container">
-    <% if (products.length>0) { %>
+    <% if (products!=null  && products.length>0) { %>
         <% products.forEach(function(prod){ %>
            
           

@@ -7,7 +7,7 @@ const stripe=require('stripe')('sk_test_wajSIhyerCtZf0sqbfVHBzW400lVxypPSJ');
 const Order=require('../model/order');
 var Cart=require('../model/cart');
 
-mongoose.connect('mongodb://localhost/shopping',{useNewUrlParser:true});
+mongoose.connect('mongodb://prat123:prat123@ds345597.mlab.com:45597/carter',{useNewUrlParser:true});
     Products.find({}).sort({"name":1}).limit(25).then(function(data){
         console.log(data.length)
     })

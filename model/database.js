@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect('mongodb://localhost/shopping',{useNewUrlParser:true});
+mongoose.connect('mongodb://prat123:prat123@ds345597.mlab.com:45597/carter',{useNewUrlParser:true});
 const Schema=mongoose.Schema;
 
 var CommentSchema=new Schema({

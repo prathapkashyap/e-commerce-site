@@ -7,7 +7,7 @@ const Products=require('../model/database');
 var User=require('../model/user');
 var Cart =require('../model/cart');
 var Order=require('../model/order');
-mongoose.connect('mongodb://localhost/shopping',{useNewUrlParser:true});
+mongoose.connect('mongodb://prat123:prat123@ds345597.mlab.com:45597/carter',{useNewUrlParser:true});
 var csrfProtection=csrf();
 router.use(csrfProtection);
 
