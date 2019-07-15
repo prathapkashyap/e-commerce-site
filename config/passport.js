@@ -24,7 +24,7 @@ passport.deserializeUser(function(id,done){
 //first one is a configuration which is a javascript object and the 
 //second one is a callback function
 
-// this part is used for creating new users
+// this part is used for signing in existing users
 passport.use('local.signup',new LocalStrategy({
     usernameField:'email',
     passwordField:'password',
